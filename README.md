@@ -15,8 +15,8 @@ The goal of this competition is to classify an image of a person whether the per
 3. [3 models](#create-separate-models-for-age-mask-and-gender)
 4. [1 model](#create-a-single-model-for-all-age-mask-and-gender)
 5. [Voting](#voting)
-6. [Weight Check and Bacward Graph plot](#weight-check-and-bacward-graph-plot)
-7. [References](#references)
+6. [References](#references)
+
 ## Installation
 Download all the required libraries with the following command.
 ```
@@ -45,12 +45,12 @@ However, the dataset is private which is licensed by [UPStage](https://www.upsta
 **model used:** resnet152
   1. Remove the last fully connected layer from the pretrained resnet152 model
   2. Add three different fully connected layers to the last layer of the model and apply them to age, mask, and gender respectively
-  3. Generate the result by summing the results from three different fully connected layers
+  3. Generate the final result by summing the results from the three different fully connected layers
 
 ## Create a single model for all age, mask, and gender
-파일: one_model.ipynb
+**File name:** one_model.ipynb
 
-다음과 같이 wandb를 설정해주세요.
+Initialize wandb as the following.
 ```
 wandb.init(project='your-project-name', entity='your-entity-name',config = {
     'learning_rate':0.001,
@@ -77,7 +77,7 @@ vit_base_patch16_224 | 92.12
 resnet152 | 91.64
 custom_model | 2.51
 
-Test dataset을 만들어서 위에서 만든 모델로 eval images에 대한 답을 추출한다.
+Create a test dataset from "eval images" to evaluate the model
 
 Model | Eval Accuracy (test) | Eval F1 score (test) | Eval Accuracy (final) | Eval F1 score (final)
 ------------ | ------------- | ------------- | ------------- | -------------
@@ -85,11 +85,11 @@ resnet152 | 80.460 | 0.774 | 79.937 | 0.755
 vit_base_patch16_224 | 79.952 | 0.766 | 79.619 | 0.756
 
 ## Voting
-파일: voting.ipynb
+**File name:** voting.ipynb
 
-가장 성능이 좋았던 10개의 모델을 불러내어 softvoting하여 output추출
+10 models with the best performance were softvoted to generate the final output
 
-Combined Model (resnet의 결과값에 가중치 1, vit의 결과값에 가중치 0.625)
+Combined Model (weight of resnet is **1**, weight of vit is **0.625**)
 - resnet152
 - resnet50
 - resnet50 (complex transformation applied)
@@ -104,13 +104,6 @@ Combined Model (resnet의 결과값에 가중치 1, vit의 결과값에 가중�
 Eval Accuracy (test) | Eval F1 score (test) | Eval Accuracy (final) | Eval F1 score (final)
 ------------ | ------------- | ------------- | -------------
 81.635 | 0.781 | 81.000 | 0.771
-
-## Weight Check and Bacward Graph plot
-https://kmhana.tistory.com/25
-
-파일:clasify_module.ipynb
-
-모델에 대한 gradient 값을 출력하고 , backward graph plot
 
 ## References
 https://arxiv.org/pdf/1812.01187.pdf
