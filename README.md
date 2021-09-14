@@ -6,10 +6,10 @@ The goal of this competition is to classify an image of a person whether the per
 **Competition link:** [AI stage](https://stages.ai/)
 
 ## Hardware
-AI stage에서 제공한 server, GPU
+- A server provided by UPStage
 - GPU: V100
 
-## 개요
+## Summary
 1. [Installation](#installation)
 2. [Data preprocessing](#data-preprocessing)
 3. [3 models](#create-separate-models-for-age-mask-and-gender)
@@ -18,7 +18,7 @@ AI stage에서 제공한 server, GPU
 6. [Weight Check and Bacward Graph plot](#weight-check-and-bacward-graph-plot)
 7. [References](#references)
 ## Installation
-다음과 같은 명령어로 필요한 libraries를 다운 받습니다.
+Download all the required libraries with the following command.
 ```
 pip install -r requirements.txt
 ```
@@ -26,6 +26,9 @@ pip install -r requirements.txt
 ## Dataset
 데이터셋은 2700명의 사람들이 각각 마스크를 안 쓴 사진 1장, 쓴 사진 5장, 제대로 쓰지 않은 사진 1장으로 되어있습니다.
 데이터는 공개 할 수 없습니다.
+
+Each 2700 people took 7 images; 1 image not wearing a mask, 5 images wearing a mask, and 1 image incorrectly wearing a mask.
+However, the dataset is private which is licensed by [UPStage](https://www.upstage.ai/).
 
 ## Data preprocessing
 파일: label.ipynb
