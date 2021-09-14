@@ -15,8 +15,8 @@ The goal of this competition is to classify an image of a person whether the per
 3. [3 models](#create-separate-models-for-age-mask-and-gender)
 4. [1 model](#create-a-single-model-for-all-age-mask-and-gender)
 5. [Voting](#voting)
-6. [Grayscale images training](grayscale-images-training)
-7. [Cropped images training](cropped-images-training)
+6. [Grayscale images training](#grayscale-images-training)
+7. [Cropped images training](#cropped-images-training)
 8. [References](#references)
 
 ## Installation
