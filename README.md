@@ -3,7 +3,7 @@ Competition의 목적은 사람 얼굴 이미지 데이터만을 가지고 마�
 
 The goal of this competition is to classify an image of a person whether the person is wearing a mask, not wearing a mask, or incorrectly wearing a mask. However, age(<30, 30>=x<60, 60<=x) and gender(male, female) had to be additionally classified. Hence the final goal of this competition was to classify a total of 18 classes.
 
-**Competition link** [AI stage](https://stages.ai/)
+**Competition link:** [AI stage](https://stages.ai/)
 
 ## Hardware
 AI stage에서 제공한 server, GPU
