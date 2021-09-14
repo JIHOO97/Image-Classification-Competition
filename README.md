@@ -1,8 +1,9 @@
 # Boostcamp Image Classification Competition
 Competition의 목적은 사람 얼굴 이미지 데이터만을 가지고 마스크를 썼는지, 쓰지 않았는지, 정확히 쓴 것인지를 분류하는것에 있었습니다. 하지만 추가적으로 나이대, 성별 특성을 추가하여 총 18개의 분류로 나누는 것이 최종적인 목표가 되었습니다.
+
 The goal of this competition is to classify an image of a person whether the person is wearing a mask, not wearing a mask, or incorrectly wearing a mask. However, age(<30, 30>=x<60, 60<=x) and gender(male, female) had to be additionally classified. Hence the final goal of this competition was to classify a total of 18 classes.
 
-Competition link [AI stage](https://stages.ai/)
+**Competition link** [AI stage](https://stages.ai/)
 
 ## Hardware
 AI stage에서 제공한 server, GPU
