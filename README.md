@@ -15,7 +15,9 @@ The goal of this competition is to classify an image of a person whether the per
 3. [3 models](#create-separate-models-for-age-mask-and-gender)
 4. [1 model](#create-a-single-model-for-all-age-mask-and-gender)
 5. [Voting](#voting)
-6. [References](#references)
+6. [Grayscale images training]
+7. [Cropped images training]
+8. [References](#references)
 
 ## Installation
 Download all the required libraries with the following command.
@@ -104,6 +106,22 @@ Combined Model (weight of resnet is **1**, weight of vit is **0.625**)
 Eval Accuracy (test) | Eval F1 score (test) | Eval Accuracy (final) | Eval F1 score (final)
 ------------ | ------------- | ------------- | -------------
 81.635 | 0.781 | 81.000 | 0.771
+
+## Grayscale images training
+**File name:** gray_scale_train.ipynb
+
+This file converts all the images into grayscale.
+However, the pretrained cnn models only accept their input in rgb channels.
+In order for the grayscale images to fit into the pretrained model, I had to change the input layer of the model.
+After all, the result was not as good as expected.
+
+## Cropped images training
+**File name:** train_cropped.ipynb
+
+This file crops only the face part of all the images.
+I saved the cropped images separately in "cropped images" folder.
+Resnet152 and different hyperparameters were tested using these images.
+After all, the result of this model was not as good as expected.
 
 ## References
 https://arxiv.org/pdf/1812.01187.pdf
