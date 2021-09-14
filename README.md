@@ -1,4 +1,4 @@
-# Boostcamp Image Classification Competition
+# Image Classification Competition
 Competition의 목적은 사람 얼굴 이미지 데이터만을 가지고 마스크를 썼는지, 쓰지 않았는지, 정확히 쓴 것인지를 분류하는것에 있었습니다. 하지만 추가적으로 나이대, 성별 특성을 추가하여 총 18개의 분류로 나누는 것이 최종적인 목표가 되었습니다.
 
 The goal of this competition is to classify an image of a person whether the person is wearing a mask, not wearing a mask, or incorrectly wearing a mask. However, age(<30, 30>=x<60, 60<=x) and gender(male, female) had to be additionally classified. Hence the final goal of this competition was to classify a total of 18 classes.
@@ -31,22 +31,21 @@ Each 2700 people took 7 images; 1 image not wearing a mask, 5 images wearing a m
 However, the dataset is private which is licensed by [UPStage](https://www.upstage.ai/).
 
 ## Data preprocessing
-파일: label.ipynb
+**File name**: label.ipynb
 
-label 파일은 데이터의 노이즈를 제거해주는 파일입니다.
-  1. 이미지를 한장한장 띄워주고, 해당 이미지의 설명과 다른 이미지가 있다면 (1)을 눌러 wrong images폴더에 넣어줍니다.
-  2. wrong images폴더 안에있는 이미지들을 띄워주어 다시 한번 검토하여 불필요한 이미지가 있다면 삭제합니다.
-  3. wrong images폴더에 남은 이미지들을 다시 띄워주어 해당 이미지가 어느 class에 해당되는지 숫자를 치면, 자동으로 해당 class로 재분류가 됩니다.
-  4. 재분류한 이미지들을 csv파일로 만들어 줍니다. (이미지의 절대 경로와 class를 저장합니다)
-
+**label** file is to pre-process all the images. It has the following features.
+  1. Display an image one by one using openCV, and press (1) to put it in the "wrong images" folder if the image is different from the description of the image
+  2. Display an image in the "wrong images" folder one by one to check and ensure it is wrong
+  3. Display an image in the filtered "wrong images" folder one by one, and type the corresponding class to correctly label it
+  4. Combine the relabeled images to the original dataset
 
 ## Create separate models for age, mask, and gender
-파일: 3models_combined.ipynb
+**File name:** three_models.ipynb
 
-model used: resnet152
-  1. resnet152 pretrained 모델에서 마지막 fully connected layer를 제거
-  2. 3개의 다른 fully connected layers를 resnet152 마지막 layer에 더해주어, 각각 age, mask, gender에 적용
-  3. 3개의 다른 fully connected layers에서 나온 결과값을 합하여 final output을 생성
+**model used:** resnet152
+  1. Remove the last fully connected layer from the pretrained resnet152 model
+  2. Add three different fully connected layers to the last layer of the model and apply them to age, mask, and gender respectively
+  3. Generate the result by summing the results from three different fully connected layers
 
 ## Create a single model for all age, mask, and gender
 파일: one_model.ipynb
